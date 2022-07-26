@@ -10,8 +10,7 @@ $action = $getActionName;
 <head>
     <meta charset="utf-8">
     {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -23,13 +22,11 @@ $action = $getActionName;
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"
-        integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
 
     <!-- plugin css-->
     <link href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('plugins/dependent-dropdown/css/dependent-dropdown.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('plugins/dependent-dropdown/css/dependent-dropdown.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
     @yield('pluginsCss')
     <!-- Styles -->
@@ -67,20 +64,11 @@ $action = $getActionName;
                 return messaging.getToken()
             }).then(function(token) {
                 console.log(token);
-
-
                 $.ajaxSetup({
-
                     headers: {
-
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
                     }
-
                 });
-
-
-
                 $.ajax({
                     url: "{{ route('admin.dashboard.fcmToken') }}",
                     type: 'POST',
@@ -144,8 +132,7 @@ $action = $getActionName;
                     <!-- Start navbar links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" data-lte-toggle="sidebar-full" href="#" role="button"><i
-                                    class="fas fa-bars"></i></a>
+                            <a class="nav-link" data-lte-toggle="sidebar-full" href="#" role="button"><i class="fas fa-bars"></i></a>
                         </li>
                         <li class="nav-item d-none d-md-block">
                             <a href="#" class="nav-link">Home</a>
@@ -155,16 +142,14 @@ $action = $getActionName;
                     <!-- End navbar links -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown user-menu">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="https://github.com/mdo.png" class="user-image img-circle shadow" alt="User Image">
                                 <span class="d-none d-md-inline">Alexander Pierce</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                                 <!-- User image -->
                                 <li class="user-header bg-primary">
-                                    <img src="../../assets/img/user2-160x160.jpg" class="img-circle shadow"
-                                        alt="User Image">
+                                    <img src="../../assets/img/user2-160x160.jpg" class="img-circle shadow" alt="User Image">
                                     <p>
                                         {{ $user->first_name . ' ' . $user->last_name }}
                                     </p>
@@ -172,12 +157,10 @@ $action = $getActionName;
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    <a class="btn btn-default btn-flat float-end" href="{{ route('admin.logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a class="btn btn-default btn-flat float-end" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="fas fa-sign-out-alt mr-2"></i> {{ __('Sign out') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
-                                        class="d-none">
+                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </li>
@@ -185,50 +168,71 @@ $action = $getActionName;
                         </li>
                         <!-- TODO tackel in v4.1 -->
                         <!-- <li class="nav-item">
-                                                                            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                                                                            <i class="fas fa-expand-arrows-alt"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                                                                            <i class="fas fa-th-large"></i>
-                                                                            </a>
-                                                                        </li> -->
+                                                                                                                                                                                                                                                                                                                                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                                                                                                                                                                                                                                                                                                                                    <i class="fas fa-expand-arrows-alt"></i>
+                                                                                                                                                                                                                                                                                                                                    </a>
+                                                                                                                                                                                                                                                                                                                                </li>
+                                                                                                                                                                                                                                                                                                                                <li class="nav-item">
+                                                                                                                                                                                                                                                                                                                                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                                                                                                                                                                                                                                                                                                                                    <i class="fas fa-th-large"></i>
+                                                                                                                                                                                                                                                                                                                                    </a>
+                                                                                                                                                                                                                                                                                                                                </li> -->
                     </ul>
                 </div>
             </nav>
-            <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-bg-dark sidebar-color-primary shadow">
                 <div class="brand-container">
                     <a href="javascript:;" class="brand-link">
-                        <img src="{{ url('/img/AdminLTELogo.png') }}" alt="" class="brand-image opacity-80 shadow">
-                        <span class="brand-text fw-light">{{ config('app.name') }}</span>
+                        <img src="" alt="" class="brand-image opacity-80 shadow">
+                        <span class="brand-text fw-light">AdminLTE 4</span>
                     </a>
-                    <a class="pushmenu mx-1" data-lte-toggle="sidebar-mini" href="javascript:;" role="button"><i
-                            class="fas fa-angle-double-left"></i></a>
+                    <a class="pushmenu mx-1" data-lte-toggle="sidebar-mini" href="javascript:;" role="button"><i class="fas fa-angle-double-left"></i></a>
                 </div>
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <nav class="mt-2">
+                        <!-- Sidebar Menu -->
                         <?php
-                        // $modules = Modules::where(['menu_id' => 0, 'parent_menu_id' => 0, 'parent_submenu_id' => 0])->where('title', '!=', '')->get();
-                        // if($modules){
-                        //     foreach ($modules as $key => $value){
-
-                        //$sideMenu[] = '<li class="nav-header">'.$value['title'].'</li>';
-
                         $menus = Modules::where(['type' => 'Menu', 'is_active' => '1', 'panel' => 'Backend'])
                             ->where('title', '!=', '')
                             ->orderBy('menu_position', 'asc')
                             ->get()
                             ->toArray();
-
+                        // $sideMenu = '<li class="nav-item menu-open">
+                        //     <a href="javascript:;" class="nav-link active">
+                        //         <i class="nav-icon fas fa-circle"></i>
+                        //         <p>
+                        //             Dashboard
+                        //             <i class="end fas fa-angle-right"></i>
+                        //         </p>
+                        //     </a>
+                        //     <ul class="nav nav-treeview">
+                        //         <li class="nav-item">
+                        //             <a href="./index.html" class="nav-link active">
+                        //                 <i class="nav-icon far fa-circle"></i>
+                        //                 <p>Dashboard v1</p>
+                        //             </a>
+                        //         </li>
+                        //         <li class="nav-item">
+                        //             <a href="./index2.html" class="nav-link ">
+                        //                 <i class="nav-icon far fa-circle"></i>
+                        //                 <p>Dashboard v2</p>
+                        //             </a>
+                        //         </li>
+                        //         <li class="nav-item">
+                        //             <a href="./index3.html" class="nav-link ">
+                        //                 <i class="nav-icon far fa-circle"></i>
+                        //                 <p>Dashboard v3</p>
+                        //             </a>
+                        //         </li>
+                        //     </ul>
+                        // </li>';
                         $sideMenu = '';
                         if ($menus) {
                             foreach ($menus as $key_menu => $value_menu) {
                                 $active_sidemenu = '';
                                 $nav_open_sidemenu = '';
-
+                        
                                 if ($value_menu['controller'] && $value_menu['action'] == 'index') {
                                     $url = $value_menu['controller'];
                                 } elseif ($value_menu['controller'] && $value_menu['action'] != 'index') {
@@ -267,34 +271,34 @@ $action = $getActionName;
                                             ->orderBy('submenu_position', 'asc')
                                             ->get()
                                             ->toArray();
-                                        // if ($subsubmenu) {
-                                        //     $childInMenu .= '<ul class="nav nav-treeview">';
-                                        //     foreach ($subsubmenu as $key_subsubmenu => $value_subsubmenu) {
-                                        //         if ($value_subsubmenu['controller'] && $value_subsubmenu['action'] == 'index') {
-                                        //             $url_childInmenu = $value_subsubmenu['controller'];
-                                        //         } elseif ($value_subsubmenu['controller'] && $value_subsubmenu['action'] != 'index') {
-                                        //             $url_childInmenu = $value_subsubmenu['controller'] . '/' . $value_subsubmenu['action'];
-                                        //         } else {
-                                        //             $url_childInmenu = false;
-                                        //         }
-                                        //         $active_childInmenu = '';
-                                        //         if ($url_childInmenu && $controller == $value_subsubmenu['controller'] && $action == $value_subsubmenu['action']) {
-                                        //             $active_sidemenu = 'active';
-                                        //             $active_childmenu = 'active';
-                                        //             $active_childInmenu = 'active';
-                                        //             $nav_open_sidemenu = 'menu-open menu-is-open';
-                                        //         }
-                                        //         if (!empty(checkaccess($value_subsubmenu['action'], $value_subsubmenu['controller']))) {
-                                        //             $childInMenutitle = '<i class="nav-icon ' . $value_subsubmenu['icon'] . '"></i><p>' . $value_subsubmenu['title'] . '</p>';
-                                        //             $childInMenu .= '<li class="nav-item"><a href="' . url('/admin') . '/' . $url_childInmenu . '" class="nav-link ' . $active_childInmenu . '">' . $childInMenutitle . '</a></li>';
-                                        //         }
-                                        //     }
-                                        //     $childInMenu .= '</ul>';
-                                        //     $iconchild .= '<i class="end fas fa-angle-right"></i>';
-                                        // }
+                                        if ($subsubmenu) {
+                                            $childInMenu .= '<ul class="nav nav-treeview">';
+                                            foreach ($subsubmenu as $key_subsubmenu => $value_subsubmenu) {
+                                                if ($value_subsubmenu['controller'] && $value_subsubmenu['action'] == 'index') {
+                                                    $url_childInmenu = $value_subsubmenu['controller'];
+                                                } elseif ($value_subsubmenu['controller'] && $value_subsubmenu['action'] != 'index') {
+                                                    $url_childInmenu = $value_subsubmenu['controller'] . '/' . $value_subsubmenu['action'];
+                                                } else {
+                                                    $url_childInmenu = false;
+                                                }
+                                                $active_childInmenu = '';
+                                                if ($url_childInmenu && $controller == $value_subsubmenu['controller'] && $action == $value_subsubmenu['action']) {
+                                                    $active_sidemenu = 'active';
+                                                    $active_childmenu = 'active';
+                                                    $active_childInmenu = 'active';
+                                                    $nav_open_sidemenu = 'menu-open menu-is-open';
+                                                }
+                                                if (!empty(checkaccess($value_subsubmenu['action'], $value_subsubmenu['controller']))) {
+                                                    $childInMenutitle = '<i class="nav-icon ' . $value_subsubmenu['icon'] . '"></i><p>' . $value_subsubmenu['title'] . '</p>';
+                                                    $url_childInmenu = $url_childmenu ? url('/admin') . '/' . $url_childInmenu : 'javascript:;';
+                                                    $childInMenu .= '<li class="nav-item"><a href="' . $url_childInmenu . '" class="nav-link ' . $active_childInmenu . '">' . $childInMenutitle . '</a></li>';
+                                                }
+                                            }
+                                        }
                                         if (!empty(checkaccess($value_submenu['action'], $value_submenu['controller']))) {
                                             $childMenutitle = '<i class="nav-icon ' . $value_submenu['icon'] . '"></i><p>' . $value_submenu['title'] . $iconchild . '</p>';
-                                            $childMenu .= '<li class="nav-item"><a href="' . url('/admin') . '/' . $url_childmenu . '" class="nav-link ' . $active_childmenu . '">' . $childMenutitle . '</a>' . $childInMenu . '</li>';
+                                            $url_childmenu = $url_childmenu ? url('/admin') . '/' . $url_childmenu : 'javascript:;';
+                                            $childMenu .= '<li class="nav-item"><a href="' . $url_childmenu . '" class="nav-link ' . $active_childmenu . '">' . $childMenutitle . '</a>' . $childInMenu . '</li>';
                                             $totalchildMenu[] = true;
                                         }
                                     }
@@ -306,29 +310,21 @@ $action = $getActionName;
                                         $nav_open_sidemenu = 'menu-open menu-is-open';
                                     }
                                 }
-                                // echo checkaccess($value_menu['action'], $value_menu['controller']);
                                 if (!empty(checkaccess($value_menu['action'], $value_menu['controller']))) {
                                     $sideMenutitle = '<i class="nav-icon ' . $value_menu['icon'] . '"></i><p>' . $value_menu['title'] . $icon . '</p>';
-                                    $sideMenu .= '<li class="nav-item ' . $nav_open_sidemenu . '"><a href="' . url('/admin') . '/' . $url . '" class="nav-link ' . $active_sidemenu . '">' . $sideMenutitle . '</a>' . $childMenu . '</li>';
+                                    $url = $url ? url('/admin') . '/' . $url : 'javascript:;';
+                                    $sideMenu .= '<li class="nav-item ' . $nav_open_sidemenu . '"><a href="' . $url . '" class="nav-link ' . $active_sidemenu . '">' . $sideMenutitle . '</a>' . $childMenu . '</li>';
                                 } else {
                                     if ($totalchildMenu || $value_menu['controller'] == 'dashboard') {
                                         $sideMenutitle = '<i class="nav-icon ' . $value_menu['icon'] . '"></i><p>' . $value_menu['title'] . $icon . '</p>';
-                                        $sideMenu .= '<li class="nav-item ' . $nav_open_sidemenu . '"><a href="' . url('/admin') . '/' . $url . '" class="nav-link ' . $active_sidemenu . '">' . $sideMenutitle . '</a>' . $childMenu . '</li>';
+                                        $url = $url ? url('/admin') . '/' . $url : 'javascript:;';
+                                        $sideMenu .= '<li class="nav-item ' . $nav_open_sidemenu . '"><a href="' . $url . '" class="nav-link ' . $active_sidemenu . '">' . $sideMenutitle . '</a>' . $childMenu . '</li>';
                                     }
                                 }
                             }
                         }
-
-                        //     }
-                        // }
-                        // echo Nav::widget([
-                        //     'options' => ['class' => 'nav nav-pills nav-sidebar flex-column', 'data-widget' => "treeview", 'role' => "menu", 'data-accordion' => "false"],
-                        //     'items' => $sideMenu,
-                        // ]);
-
                         ?>
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                            data-accordion="false">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
                             {!! $sideMenu !!}
                         </ul>
                     </nav>
