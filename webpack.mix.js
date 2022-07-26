@@ -13,14 +13,10 @@ require("dotenv").config();
 
 mix.js("resources/js/app.js", "public/js")
     .react()
+    .js("resources/assets/js/main.js", "public/js")
     //Bootstrap+adminlte+jquery
     .sass("resources/sass/app.scss", "public/css")
     .js("resources/assets/js/jquery.js", "public/js")
-    .copyDirectory("resources/assets/js/adminlte", "public/js")
-    .copyDirectory(
-        "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-        "public/js"
-    )
     //extra
     // .sass("resources/sass/material-kit.scss", "public/css")
     // .sass("vendor/almasaeed2010/adminlte/src/scss/adminlte.scss", "public/css")
@@ -71,16 +67,18 @@ mix.js("resources/js/app.js", "public/js")
     )
     //summernote
     .copyDirectory("node_modules/summernote/dist/", "public/plugins/summernote")
+    //select2
+    .copyDirectory("node_modules/select2/dist/", "public/plugins/select2")
     //input mask
     .copyDirectory("node_modules/inputmask/dist/", "public/plugins/inputmask")
-    //cloneData
-    .copy("resources/assets/cloneData/cloneData.js", "public/js")
     //handlebars
     .copyDirectory("node_modules/handlebars/dist/", "public/plugins/handlebars")
+    //cloneData
+    .copy("resources/assets/cloneData/cloneData.js", "public/js")
     //other
     .copy("resources/assets/js/plugins/grid.js", "public/js")
     .copy("resources/assets/js/plugins/sweetalert2.js", "public/js")
-    // .js("resources/assets/js/library/AdminLTE.js", "public/js")
+    .copyDirectory("resources/assets/js/adminlte", "public/js")
     // .copy("resources/assets/js/library/adminlte.min.js", "public/js")
     // .copy("resources/assets/js/library/demo.js", "public/js")
     // .copy("resources/assets/js/material-kit.min.js", "public/js")

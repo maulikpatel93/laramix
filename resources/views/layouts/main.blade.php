@@ -32,89 +32,89 @@ $action = $getActionName;
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('plugins/sweetalert2/css/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('plugins/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('plugins/summernote/summernote-bs5.css') }}" rel="stylesheet" type="text/css">
     <!-- common script-->
     <script src="{{ asset('js/jquery.js') }}" type="text/javascript"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js"></script>
+    {{-- <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js"></script> --}}
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <script>
         // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyAomfeAwSjzSqLZnq2-9lY7YpkmjrXFgkU",
-            authDomain: "vandemission-98da0.firebaseapp.com",
-            projectId: "vandemission-98da0",
-            storageBucket: "vandemission-98da0.appspot.com",
-            messagingSenderId: "655157812442",
-            appId: "1:655157812442:web:611d3e66091794662ad9e3",
-            measurementId: "G-NGKBM04VKN"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+        // var firebaseConfig = {
+        //     apiKey: "AIzaSyAomfeAwSjzSqLZnq2-9lY7YpkmjrXFgkU",
+        //     authDomain: "vandemission-98da0.firebaseapp.com",
+        //     projectId: "vandemission-98da0",
+        //     storageBucket: "vandemission-98da0.appspot.com",
+        //     messagingSenderId: "655157812442",
+        //     appId: "1:655157812442:web:611d3e66091794662ad9e3",
+        //     measurementId: "G-NGKBM04VKN"
+        // };
+        // // Initialize Firebase
+        // firebase.initializeApp(firebaseConfig);
 
-        const messaging = firebase.messaging();
+        // const messaging = firebase.messaging();
 
-        function initFirebaseMessagingRegistration() {
-            messaging.requestPermission().then(function() {
-                return messaging.getToken()
-            }).then(function(token) {
-                console.log(token);
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    url: "{{ route('admin.dashboard.fcmToken') }}",
-                    type: 'POST',
-                    data: {
-                        token: token
-                    },
-                    dataType: 'JSON',
-                    success: function(response) {
-                        // alert('Token saved successfully.');
-                    },
-                    error: function(err) {
-                        console.log('User Chat Token Error' + err);
-                    },
-                });
-                // axios.post("{{ route('admin.dashboard.fcmToken') }}", {
-                //     _method: "PATCH",
-                //     token
-                // }).then(({
-                //     data
-                // }) => {
-                //     console.log(data)
-                // }).catch(({
-                //     response: {
-                //         data
-                //     }
-                // }) => {
-                //     console.error(data)
-                // })
+        // function initFirebaseMessagingRegistration() {
+        //     messaging.requestPermission().then(function() {
+        //         return messaging.getToken()
+        //     }).then(function(token) {
+        //         console.log(token);
+        //         $.ajaxSetup({
+        //             headers: {
+        //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //             }
+        //         });
+        //         $.ajax({
+        //             url: "{{ route('admin.dashboard.fcmToken') }}",
+        //             type: 'POST',
+        //             data: {
+        //                 token: token
+        //             },
+        //             dataType: 'JSON',
+        //             success: function(response) {
+        //                 // alert('Token saved successfully.');
+        //             },
+        //             error: function(err) {
+        //                 console.log('User Chat Token Error' + err);
+        //             },
+        //         });
+        //         // axios.post("{{ route('admin.dashboard.fcmToken') }}", {
+        //         //     _method: "PATCH",
+        //         //     token
+        //         // }).then(({
+        //         //     data
+        //         // }) => {
+        //         //     console.log(data)
+        //         // }).catch(({
+        //         //     response: {
+        //         //         data
+        //         //     }
+        //         // }) => {
+        //         //     console.error(data)
+        //         // })
 
-            }).catch(function(err) {
-                console.log(`Token Error :: ${err}`);
-            });
-        }
+        //     }).catch(function(err) {
+        //         console.log(`Token Error :: ${err}`);
+        //     });
+        // }
 
-        initFirebaseMessagingRegistration();
+        // initFirebaseMessagingRegistration();
 
-        messaging.onMessage(function({
-            data: {
-                body,
-                title
-            }
-        }) {
-            new Notification(title, {
-                body
-            });
-        });
+        // messaging.onMessage(function({
+        //     data: {
+        //         body,
+        //         title
+        //     }
+        // }) {
+        //     new Notification(title, {
+        //         body
+        //     });
+        // });
     </script>
 
     @stack('after-styles')
@@ -135,7 +135,7 @@ $action = $getActionName;
                             <a class="nav-link" data-lte-toggle="sidebar-full" href="#" role="button"><i class="fas fa-bars"></i></a>
                         </li>
                         <li class="nav-item d-none d-md-block">
-                            <a href="#" class="nav-link">Home</a>
+                            <a href="" class="nav-link">Home</a>
                         </li>
                     </ul>
 
@@ -166,17 +166,6 @@ $action = $getActionName;
                                 </li>
                             </ul>
                         </li>
-                        <!-- TODO tackel in v4.1 -->
-                        <!-- <li class="nav-item">
-                                                                                                                                                                                                                                                                                                                                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                                                                                                                                                                                                                                                                                                                                    <i class="fas fa-expand-arrows-alt"></i>
-                                                                                                                                                                                                                                                                                                                                    </a>
-                                                                                                                                                                                                                                                                                                                                </li>
-                                                                                                                                                                                                                                                                                                                                <li class="nav-item">
-                                                                                                                                                                                                                                                                                                                                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                                                                                                                                                                                                                                                                                                                                    <i class="fas fa-th-large"></i>
-                                                                                                                                                                                                                                                                                                                                    </a>
-                                                                                                                                                                                                                                                                                                                                </li> -->
                     </ul>
                 </div>
             </nav>
@@ -198,35 +187,6 @@ $action = $getActionName;
                             ->orderBy('menu_position', 'asc')
                             ->get()
                             ->toArray();
-                        // $sideMenu = '<li class="nav-item menu-open">
-                        //     <a href="javascript:;" class="nav-link active">
-                        //         <i class="nav-icon fas fa-circle"></i>
-                        //         <p>
-                        //             Dashboard
-                        //             <i class="end fas fa-angle-right"></i>
-                        //         </p>
-                        //     </a>
-                        //     <ul class="nav nav-treeview">
-                        //         <li class="nav-item">
-                        //             <a href="./index.html" class="nav-link active">
-                        //                 <i class="nav-icon far fa-circle"></i>
-                        //                 <p>Dashboard v1</p>
-                        //             </a>
-                        //         </li>
-                        //         <li class="nav-item">
-                        //             <a href="./index2.html" class="nav-link ">
-                        //                 <i class="nav-icon far fa-circle"></i>
-                        //                 <p>Dashboard v2</p>
-                        //             </a>
-                        //         </li>
-                        //         <li class="nav-item">
-                        //             <a href="./index3.html" class="nav-link ">
-                        //                 <i class="nav-icon far fa-circle"></i>
-                        //                 <p>Dashboard v3</p>
-                        //             </a>
-                        //         </li>
-                        //     </ul>
-                        // </li>';
                         $sideMenu = '';
                         if ($menus) {
                             foreach ($menus as $key_menu => $value_menu) {
@@ -359,9 +319,7 @@ $action = $getActionName;
         <!-- ./wrapper -->
         @stack('before-scripts')
         <!-- common js -->
-        {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-
-        <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
+        <script src="{{ asset('js/main.js') }}" defer></script>
         <script src="{{ asset('js/jquery.form.min.js') }}" defer></script>
         <script src="{{ asset('js/adminlte.min.js') }}" type="text/javascript"></script>
         <!-- plugin js -->
@@ -383,17 +341,6 @@ $action = $getActionName;
         @stack('after-scripts')
         @yield('pagescript')
     @endauth
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $(document).ready(function() {
-            $(":input").inputmask();
-            // Inputmask().mask(document.querySelectorAll("input"));
-        });
-    </script>
     <script>
         const SELECTOR_SIDEBAR = '.sidebar'
         const Default = {
@@ -412,6 +359,17 @@ $action = $getActionName;
                 })
             }
         })
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(document).ready(function() {
+            $(":input").inputmask();
+            // Inputmask().mask(document.querySelectorAll("input"));
+        });
     </script>
     @stack('grid_js')
 </body>

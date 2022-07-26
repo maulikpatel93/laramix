@@ -33,6 +33,7 @@
         "jquery-pjax": "^2.0.1",
         "multiform": "^0.1.0",
         "overlayscrollbars": "^1.13.3",
+        "select2": "^4.1.0-rc.0",
         "summernote": "^0.8.20",
         "sweetalert2": "^11.4.24"
     }
