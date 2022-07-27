@@ -26,6 +26,7 @@ cache:clearCommand
 php artisan cache:clear
 php artisan route:cache
 php artisan config:cache
+php artisan view:clear
 
 Create Migrate table
 php artisan make:migration create_salon_companies_table
@@ -179,7 +180,7 @@ php artisan iseed role
 php artisan iseed modules
 php artisan iseed permission
 php artisan iseed role_access
-php artisan iseed Admin
+php artisan iseed admins
 php artisan iseed country
 php artisan iseed state
 php artisan iseed district

@@ -14,17 +14,15 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        
 
         \DB::table('settings')->delete();
-        
-        \DB::table('settings')->insert(array (
-            0 => 
-            array (
+
+        \DB::table('settings')->insert(array(
+            0 => array(
                 'id' => 1,
                 'name' => 'site_name',
-                'value' => 'Vandemission',
-                'description' => NULL,
+                'value' => 'Demo',
+                'description' => null,
                 'type' => 'Text',
                 'is_active' => '1',
                 'is_active_at' => '2022-02-13 04:46:53',
@@ -32,7 +30,6 @@ class SettingsTableSeeder extends Seeder
                 'updated_at' => '2022-02-13 04:46:53',
             ),
         ));
-        
-        
+
     }
 }
