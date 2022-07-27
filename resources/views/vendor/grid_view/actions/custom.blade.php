@@ -2,7 +2,7 @@
     @if($button)
         {!! $button !!}
     @else
-    <a href="{!! $url !!}" @if(!empty($htmlAttributes)) {!! $htmlAttributes !!} @endif class="ms-1 me-1" >
+    <a href="{!! $url !!}" @if(!empty($htmlAttributes)) {!! $htmlAttributes !!} @endif >
         {!! $label !!}
     </a>
     @endif
